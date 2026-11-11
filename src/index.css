@@ -1,13 +1,381 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*all the styles for the whole site are in this one file*/
+
+/*colours used everywhere, change one here and it changes on all pages*/
+:root {
+  --dark: #13291f;
+  --green: #1f4a36;
+  --gold: #b8892b;
+  --cream: #f3efe4;
+  --line: #d8d0bb;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*background colour, text colour and font for the whole page*/
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--dark);
+  font-family: Georgia, serif;
+  line-height: 1.7;
+}
+
+/*main page title, gets smaller on small screens*/
+h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  margin-bottom: 20px;
+}
+
+/*section headings, the green line under them comes from border-bottom*/
+h2 {
+  font-size: 1.5rem;
+  margin-top: 40px;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 6px;
+}
+
+/*all links are dark green instead of the default blue*/
+a {
+  color: var(--dark);
+}
+
+/*dark bar at the top, name on the left and links on the right*/
+.navbar {
+  background-color: var(--dark);
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*the qirtas name in gold*/
+.navbar .logo {
+  color: var(--gold);
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/*the five page links in a row*/
+.navbar .links {
+  display: flex;
+  gap: 24px;
+}
+
+/*cream text and no underline on the nav links*/
+.navbar .links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+/*nav links turn gold when you point at them*/
+.navbar .links a:hover {
+  color: var(--gold);
+}
+
+/*big green banner on the home page*/
+.hero {
+  background-color: var(--green);
+  color: #ffffff;
+  text-align: center;
+  padding: 110px 30px;
+}
+
+/*removes the extra gap above the hero title*/
+.hero h1 {
+  margin-top: 0;
+}
+
+/*keeps page content centred and stops it stretching too wide*/
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 30px 80px;
+}
+
+/*gold buttons, used for browse books, order this book and place order*/
+.button {
+  display: inline-block;
+  background-color: var(--gold);
+  color: #ffffff;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 3px;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*button turns lighter gold when you point at it*/
+.button:hover {
+  background-color: #d1a446;
+}
+
+/*three columns side by side, used on home and contact*/
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/*one box with a border and a light background*/
+.box {
+  background-color: #faf8f2;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 20px;
+}
+
+/*heading inside a box*/
+.box h3 {
+  margin-top: 0;
+  color: var(--green);
+}
+
+/*search box on the books page*/
+.search {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+
+/*four book cards in a row*/
+.books {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/*one book card with the cover, title, price and order button*/
+.book {
+  background-color: #faf8f2;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/*card gets a gold border when you point at it*/
+.book:hover {
+  border-color: var(--gold);
+}
+
+/*book cover picture, contain keeps the whole picture visible*/
+.book img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+}
+
+/*book title under the cover*/
+.book h3 {
+  font-size: 1rem;
+  margin: 10px 0 0;
+}
+
+/*no underline on the cover and title link*/
+.book a {
+  text-decoration: none;
+}
+
+/*small gap above and below the price*/
+.book p {
+  margin: 6px 0 10px;
+}
+
+/*smaller order now button inside the card*/
+.book .button {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+}
+
+/*cover on the left and information on the right*/
+.details {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/*bigger cover on the book details page*/
+.details img {
+  width: 300px;
+  height: 400px;
+  object-fit: contain;
+  background-color: #faf8f2;
+  border: 1px solid var(--line);
+}
+
+/*removes the extra gap above the book title*/
+.details h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*arabic title under the english title*/
+.arabic {
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin-top: 0;
+}
+
+/*removes the bullet points from the details and hours lists*/
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+/*pushes the label to the left and the value to the right with a line under*/
+.list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/*makes the price gold and bold*/
+.price {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+/*order form, fields stacked in a column*/
+.form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/*small labels above each field*/
+.form label {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+/*the input boxes and the book dropdown*/
+.form input,
+.form select {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+
+/*stops the place order button stretching the full width*/
+.form .button {
+  align-self: flex-start;
+}
+
+/*red warning text when a field is left empty*/
+.error {
+  color: #8e2436;
+  font-size: 0.9rem;
+}
+
+/*the orders table*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+/*column headings of the table*/
+th {
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--green);
+  padding-bottom: 8px;
+}
+
+/*table cells with a line above each row*/
+td {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+/*cancel button in the orders table*/
+td button {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 5px 12px;
+  color: #8e2436;
+  cursor: pointer;
+  font-family: Georgia, serif;
+}
+
+/*cancel button turns red when you point at it*/
+td button:hover {
+  background-color: #8e2436;
+  color: #fff;
+}
+
+/*dark bar at the bottom of every page*/
+.footer {
+  background-color: var(--dark);
+  color: var(--cream);
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+}
+
+/*small gaps between the footer lines*/
+.footer p {
+  margin: 4px 0;
+}
+
+/*tablets: two book cards in a row*/
+@media only screen and (max-width: 900px) {
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*everything below only runs on screens 700px wide or smaller (phones)*/
+@media only screen and (max-width: 700px) {
+  /*navbar stacks the name above the links instead of side by side*/
+  .navbar {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /*links wrap onto more than one line and sit in the middle*/
+  .navbar .links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /*the three boxes become one column*/
+  .boxes {
+    grid-template-columns: 1fr;
+  }
+
+  /*cover goes above the information instead of beside it*/
+  .details {
+    flex-direction: column;
+  }
+
+  /*cover uses the full width*/
+  .details img {
+    width: 100%;
+  }
+
+  /*smaller banner so it does not fill the whole phone screen*/
+  .hero {
+    padding: 60px 20px;
+  }
+
+  /*form uses the full width*/
+  .form {
+    max-width: 100%;
+  }
 }
