@@ -40,5 +40,4 @@ Then open http://localhost:3000
 
 ## Live link
 
-<your-vercel-link>
-
+https://qirtas-five.vercel.app/
